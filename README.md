@@ -1,8 +1,8 @@
 Commands and noutput
 
 ```
-PS C:\ws\github.com\terraform-compliance-terraform-13-error> sc env:TF_VAR_project_id -Value "***value_here***"
-PS C:\ws\github.com\terraform-compliance-terraform-13-error> terraform plan -out "planfile"
+PS C:\ws\github.com\terraform-compliance-1.3.4-has-keyword-error> sc env:TF_VAR_project_id -Value "***value_here***"
+PS C:\ws\github.com\terraform-compliance-1.3.4-has-keyword-error> terraform plan -out "planfile"
 
 Refreshing Terraform state in-memory prior to plan...
 The refreshed state will be used to calculate this plan, but will not be
@@ -52,34 +52,32 @@ To perform exactly these actions, run the following command to apply:
     terraform apply "planfile"
 
 
-terraform-compliance -f ./terraform-compliance-rules -p planfile
-
-PS C:\ws\github.com\terraform-compliance-terraform-13-error> terraform-compliance -f ./terraform-compliance-rules -p planfile
-terraform-compliance v1.3.4 initiated
-
-. Converting terraform plan file.
-🚩 Features     : C:\ws\github.com\terraform-compliance-terraform-13-error\terraform-compliance-rules/
-🚩 Plan File    : C:\ws\github.com\terraform-compliance-terraform-13-error\planfile.json
-
-🚩 Running tests. 🎉
-
-Feature: Location restriction  # C:\ws\github.com\terraform-compliance-terraform-13-error\terraform-compliance-rules/locationcheck.feature
-
-    Scenario: Location control on all resources that have location defined
-        Given I have resource that supports location defined
-        When it has location
-                Failure: location property in google_storage_bucket.example-bucket resource does not match with ^eur(4|3)$|^europe-(north1|west(1|3|4))$ case insensitive regex. It is set to None.
-                Failure: location property in google_storage_bucket.example-bucket resource does not match with ^eur(4|3)$|^europe-(north1|west(1|3|4))$ case insensitive regex. It is set to False.
-                Failure: location property in google_storage_bucket.example-bucket resource does not match with ^eur(4|3)$|^europe-(north1|west(1|3|4))$ case insensitive regex. It is set to None.
-                Failure: location property in google_storage_bucket.example-bucket resource does not match with ^eur(4|3)$|^europe-(north1|west(1|3|4))$ case insensitive regex. It is set to xxx.
-                Failure: location property in google_storage_bucket.example-bucket resource does not match with ^eur(4|3)$|^europe-(north1|west(1|3|4))$ case insensitive regex. It is set to None.
-                Failure: location property in google_storage_bucket.example-bucket resource does not match with ^eur(4|3)$|^europe-(north1|west(1|3|4))$ case insensitive regex. It is set to STANDARD.
-                Failure: location property in google_storage_bucket.example-bucket resource does not match with ^eur(4|3)$|^europe-(north1|west(1|3|4))$ case insensitive regex. It is set to random_id.random.
-        Then its value must match the "^eur(4|3)$|^europe-(north1|west(1|3|4))$" regex
-          Failure:
-
-1 features (0 passed, 1 failed)
-1 scenarios (0 passed, 1 failed)
-3 steps (2 passed, 1 failed)
-Run 1600868595 finished within a moment
+PS C:\ws\github.com\terraform-compliance-1.3.4-has-keyword-error> terraform-compliance -f ./terraform-compliance-rules -p planfile
+  terraform-compliance v1.3.4 initiated
+  
+  . Converting terraform plan file.
+  🚩 Features     : C:\ws\github.com\terraform-compliance-1.3.4-has-keyword-error\terraform-compliance-rules/
+  🚩 Plan File    : C:\ws\github.com\terraform-compliance-1.3.4-has-keyword-error\planfile.json
+  
+  🚩 Running tests. 🎉
+  
+  Feature: Location restriction  # C:\ws\github.com\terraform-compliance-1.3.4-has-keyword-error\terraform-compliance-rules/locationcheck.feature
+  
+      Scenario: Location control on all resources that have location defined
+          Given I have a resource defined that supports location
+          When it has location
+                  Failure: location property in google_storage_bucket.example-bucket resource does not match with ^eur(4|3)$|^europe-(north1|west(1|3|4))$ case insensitive regex. It is set to None.
+                  Failure: location property in google_storage_bucket.example-bucket resource does not match with ^eur(4|3)$|^europe-(north1|west(1|3|4))$ case insensitive regex. It is set to False.
+                  Failure: location property in google_storage_bucket.example-bucket resource does not match with ^eur(4|3)$|^europe-(north1|west(1|3|4))$ case insensitive regex. It is set to None.
+                  Failure: location property in google_storage_bucket.example-bucket resource does not match with ^eur(4|3)$|^europe-(north1|west(1|3|4))$ case insensitive regex. It is set to *****.
+                  Failure: location property in google_storage_bucket.example-bucket resource does not match with ^eur(4|3)$|^europe-(north1|west(1|3|4))$ case insensitive regex. It is set to None.
+                  Failure: location property in google_storage_bucket.example-bucket resource does not match with ^eur(4|3)$|^europe-(north1|west(1|3|4))$ case insensitive regex. It is set to STANDARD.
+                  Failure: location property in google_storage_bucket.example-bucket resource does not match with ^eur(4|3)$|^europe-(north1|west(1|3|4))$ case insensitive regex. It is set to True.
+          Then its value must match the "^eur(4|3)$|^europe-(north1|west(1|3|4))$" regex
+            Failure:
+  
+  1 features (0 passed, 1 failed)
+  1 scenarios (0 passed, 1 failed)
+  3 steps (2 passed, 1 failed)
+  Run 1601280809 finished within a moment
 ```
